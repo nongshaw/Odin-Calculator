@@ -1,6 +1,4 @@
-//STILL DO! I need to correct the css and or js so that when you enter large numbers it does not expand the size of the calculator to the right. additionally i do not want hte pHistory and pDisplay divs to both each other. currently they are flex files that DO bother each other and that annoys me.
-
-
+//STILL DO! I need to correct the css and or js so that when you enter large numbers it does not expand the size of the calculator to the right.
 
 
 let a = 0;              //firstNumber
@@ -17,7 +15,7 @@ function appendNumber(selection) {
         result = false;
         appendNumber(selection);
     } else {
-        if (a === 0){ //changes the first number only
+        if (a === 0 && operator == false){ //changes the first number only
             if (displayNumber === 0) {
                 if (selection != 0){ 
                 displayNumber = selection; //if display number is 0, change it to the selected number - but not if first digit is 0
@@ -40,28 +38,31 @@ function appendNumber(selection) {
 }
 
 function selectOperand(operand) {//changes operator to the one selected, saves displayNumber as a, updates displayNumber to include operand.
-    if (b === 0) {
-        operator = operand;
-        a = displayNumber;
-        document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operand}`+" ";
-    } else {
-        operate();
-        operator = operand;
-        a = displayNumber;
-        document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operand}`+" ";
+    if (displayNumber)
+    {
+        if (b === 0) {
+            operator = operand;
+            a = displayNumber;
+            document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operand}`+" ";
+        } else {
+            operate();
+            operator = operand;
+            a = displayNumber;
+            document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operand}`+" ";
+        }
     }
 }
 
 function operate() {
-    if (b != 0) {
+    if (operator != 0) {
         document.getElementById("pHistory").innerHTML = `${a}` + " " + `${operator}` + " " + `${b}` + " " + '=';
         if (operator === "+") {
             displayNumber = parseInt(a) + parseInt(b);
         } else if (operator === "-") {
             displayNumber = a - b;
-        } else if (operator === "*") {
+        } else if (operator === "x") {
             displayNumber = a * b;
-        } else if (operator === "/") {
+        } else if (operator === "÷") {
             displayNumber = a / b;
         }
         document.getElementById("pDisplay").innerHTML = `${displayNumber}`;
