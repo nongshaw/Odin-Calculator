@@ -21,7 +21,10 @@ body {
     padding: 16px 16px 16px 16px;
     height: 80px;
     display: flex;
-    justify-content: space-between;}
+    justify-content: space-between;
+
+    text-overflow: ellipsis;
+}
 
 #pDisplay {
     text-align: right;

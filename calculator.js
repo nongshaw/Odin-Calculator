@@ -1,3 +1,8 @@
+//STILL DO! I need to correct the css and or js so that when you enter large numbers it does not expand the size of the calculator to the right. additionally i do not want hte pHistory and pDisplay divs to both each other. currently they are flex files that DO bother each other and that annoys me.
+
+
+
+
 let a = 0;              //firstNumber
 let b = 0;              //secondNumber
 let operator = 0;       //operator (add, subtract, multiply, divide)
