@@ -6,20 +6,20 @@ let displayNumber = 0;  //number shown on display
 // when you press the button, add it to the str.
 
 function appendNumber(selection) {
-    if (a === 0){
+    if (a === 0){ //changes the first number only
         if (displayNumber === 0) {
             displayNumber = selection; //if display number is 0, change it to the selected number
         } else {
             displayNumber += selection; //otherwise, add the number selected to the end of the string
         }
         document.getElementById("pDisplay").innerHTML = `${displayNumber}`; //update the display with new number
-    } else {
+    } else { //changes the second number only
         if (b === 0) {
             b = selection;
         } else {
             b += selection;
         }
-            document.getElementById("pDisplay").innerHTML = `${displayNumber}`+" "+`${operator}`+" "+`${b}`; //update the display with new number
+            document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operator}`+" "+`${b}`; //update the display with new number
     }
 }
 
@@ -29,19 +29,23 @@ function selectOperand(operand) {
     //THEN it adds a " ", the symbol, a " ".
     operator = operand;
     a = displayNumber;
-    document.getElementById("pDisplay").innerHTML = `${displayNumber}`+" "+`${operand}`+" ";
+    document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operand}`+" ";
 }
 
-function operate(a, b) {
-    if (operator === "add") {
-        return add(a,b);
-    } else if (operator === "subtract") {
-        return subtract(a,b);
-    } else if (operator === "multiply") {
-        return multiply(a,b);
-    } else if (operator === "divide") {
-        return divide(a,b);
+
+
+
+function operate() {
+    if (operator === "+") {
+        displayNumber = add(a,b);
+    } else if (operator === "-") {
+        displayNumber = subtract(a,b);
+    } else if (operator === "*") {
+        displayNumber = multiply(a,b);
+    } else if (operator === "/") {
+        displayNumber = divide(a,b);
     }
+    document.getElementById("pDisplay").innerHTML = `${displayNumber}`;
 }
 
 function add(a,b) {
