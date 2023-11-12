@@ -26,7 +26,19 @@ body {
 .outer-button-area {
     padding: 10px 0px 10px 0px;
 }
+
 .button-area {
+    display: flex;
+    display: row;
+}
+
+button {
+    min-height: 50px;
+    font-family: 'Courier New', Courier, monospace;    
+    border-radius: 4px;
+}
+
+.number-buttons {
     display: flex;
     flex-wrap: wrap-reverse;
     flex-direction: row;
@@ -35,11 +47,17 @@ body {
     justify-content: space-evenly;
     background-color: gray;
 }
-
-button {
+.number-buttons button {
     flex: 0 0 33%;
-    min-height: 50px;
-    font-family: 'Courier New', Courier, monospace;    
-    border-radius: 4px;
+}
 
+.operation-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.operation-buttons button {
+    flex: 1;
+    min-width: 40px;
+    background-color: rgb(173, 195, 218);
 }
