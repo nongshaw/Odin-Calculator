@@ -11,27 +11,27 @@
         <div><h1>Calculator</h1></div>
         <div class="case">
             <div class="display">
-                <p>1 + 2 = 3</p>
+                <p id="pDisplay"></p>
             </div>
             <div class="outer-button-area">
                 <div class="button-area">
                     <div class="number-buttons">
-                        <button>0</button>
-                        <button>.</button>
+                        <button onClick="appendNumber('0')">0</button>
+                        <button onClick="appendNumber('.')">.</button>
                         <button onClick="operate()">=</button>
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>4</button>
-                        <button>5</button>
-                        <button>6</button>
-                        <button>7</button>
-                        <button>8</button>
-                        <button>9</button>
+                        <button onClick="appendNumber('1')">1</button>
+                        <button onClick="appendNumber('2')">2</button>
+                        <button onClick="appendNumber('3')">3</button>
+                        <button onClick="appendNumber('4')">4</button>
+                        <button onClick="appendNumber('5')">5</button>
+                        <button onClick="appendNumber('6')">6</button>
+                        <button onClick="appendNumber('7')">7</button>
+                        <button onClick="appendNumber('8')">8</button>
+                        <button onClick="appendNumber('9')">9</button>
                     </div>
                     <div class="operation-buttons">
-                        <button onClick="operator='divide'">/</button>
-                        <button onClick="operator='multiply'">x</button>
+                        <button onClick="selectOperand(`/`)">/</button>
+                        <button onClick="selectOperand(`*`)">x</button>
                         <button onClick="operator='subtract'">-</button>
                         <button onClick="operator='add'">+</button>
                     </div>
