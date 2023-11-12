@@ -46,6 +46,7 @@ function operate() {
         displayNumber = divide(a,b);
     }
     document.getElementById("pDisplay").innerHTML = `${displayNumber}`;
+    b = 0;
 }
 
 function add(a,b) {
