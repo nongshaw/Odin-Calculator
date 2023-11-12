@@ -4,6 +4,7 @@ let operator = 0;       //operator (add, subtract, multiply, divide)
 
 let displayNumber = 0;  //number shown on display
 // when you press the button
+let displayHistory = 0; //shows the query that resulted in the given calculation
 
 function appendNumber(selection) {
     if (a === 0){ //changes the first number only
@@ -40,11 +41,9 @@ function selectOperand(operand) {//changes operator to the one selected, saves d
     }
 }
 
-
-
-
 function operate() {
     if (b != 0) {
+        document.getElementById("pHistory").innerHTML = `${a}` + " " + `${operator}` + " " + `${b}` + " " + '=';
         if (operator === "+") {
             displayNumber = parseInt(a) + parseInt(b);
         } else if (operator === "-") {
@@ -56,11 +55,16 @@ function operate() {
         }
         document.getElementById("pDisplay").innerHTML = `${displayNumber}`;
         b = 0;
+    } else {
+        document.getElementById("pDisplay").innerHTML = `${displayNumber}`;
     }
 }
+
 function clearDisplay() {
     a = 0;
     b = 0;
     displayNumber = 0;
     document.getElementById("pDisplay").innerHTML = `${displayNumber}`;
+    document.getElementById("pHistory").innerHTML = " ";
 }
+
