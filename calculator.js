@@ -4,27 +4,33 @@ let operator = 0;       //operator (add, subtract, multiply, divide)
 
 let displayNumber = 0;  //number shown on display
 // when you press the button
-let displayHistory = 0; //shows the query that resulted in the given calculation
+let result = false;
 
 function appendNumber(selection) {
-    if (a === 0){ //changes the first number only
-        if (displayNumber === 0) {
-            if (selection != 0){ 
-            displayNumber = selection; //if display number is 0, change it to the selected number - but not if first digit is 0
-            }
-        } else {
-            displayNumber += selection; //otherwise, add the number selected to the end of the string
-        }
-        document.getElementById("pDisplay").innerHTML = `${displayNumber}`; //update the display with new number
-    } else { //changes the second number only
-        if (b === 0) {
+    if (result === true && operator == false) { //if a result has occured, clear the calculator
+        clearDisplay();
+        result = false;
+        appendNumber(selection);
+    } else {
+        if (a === 0){ //changes the first number only
+            if (displayNumber === 0) {
                 if (selection != 0){ 
-                b = selection;
+                displayNumber = selection; //if display number is 0, change it to the selected number - but not if first digit is 0
+                }
+            } else {
+                displayNumber += selection; //otherwise, add the number selected to the end of the string
             }
-        } else {
-            b += selection;
+            document.getElementById("pDisplay").innerHTML = `${displayNumber}`; //update the display with new number
+        } else { //changes the second number only
+            if (b === 0) {
+                    if (selection != 0){ 
+                    b = selection;
+                }
+            } else {
+                b += selection;
+            }
+                document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operator}`+" "+`${b}`; //update the display with new number
         }
-            document.getElementById("pDisplay").innerHTML = `${a}`+" "+`${operator}`+" "+`${b}`; //update the display with new number
     }
 }
 
@@ -58,6 +64,9 @@ function operate() {
     } else {
         document.getElementById("pDisplay").innerHTML = `${displayNumber}`;
     }
+    a = 0
+    operator = 0;
+    result = true;
 }
 
 function clearDisplay() {
